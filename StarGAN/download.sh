@@ -1,5 +1,4 @@
 FILE=$1
-
 if [ $FILE == "celeba" ]; then
 
     # CelebA images and attribute labels

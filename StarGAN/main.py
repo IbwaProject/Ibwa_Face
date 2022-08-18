@@ -22,6 +22,13 @@ def main(config):
     if not os.path.exists(config.result_dir):
         os.makedirs(config.result_dir)
 
+    file_list = os.listdir(config.celeba_image_dir)
+    f = open(config.attr_path, 'w')
+    f.write("1\n")
+    f.write("Black_Hair Blond_Hair Brown_Hair Male Young\n")
+    f.write(str(file_list[0])+"  -1 -1 -1 -1  1")
+    f.close()
+
     # Data loader.
     celeba_loader = None
     rafd_loader = None

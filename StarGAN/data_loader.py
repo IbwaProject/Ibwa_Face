@@ -68,12 +68,13 @@ class CelebA(data.Dataset):
         return self.num_images
 
 
-def get_loader(image_dir, attr_path, selected_attrs, crop_size=178, image_size=128, 
+def get_loader(image_dir, attr_path, selected_attrs, crop_size=178, image_size=128,
                batch_size=16, dataset='CelebA', mode='train', num_workers=1):
     """Build and return a data loader."""
     transform = []
     if mode == 'train':
         transform.append(T.RandomHorizontalFlip())
+    transform.append(T.Resize(200))
     transform.append(T.CenterCrop(crop_size))
     transform.append(T.Resize(image_size))
     transform.append(T.ToTensor())
